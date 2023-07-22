@@ -4,8 +4,9 @@
 void InputArray(double [] array)
 {
     for (int i = 0; i < array.Length; i++)
-        array[i] = new Random().Next(0, 101);
-
+        array[i] = new Random().Next(0, 10001);
+        for (int i = 0; i < array.Length; i++)
+                array[i] = Convert.ToDouble(array[i]/100);
 }
 
 double Maximum(double [] array)
