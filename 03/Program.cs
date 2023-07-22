@@ -8,8 +8,30 @@ void InputArray(double [] array)
 
 }
 
-double ReleaseArray(double[] array)
+double Maximum(double [] array)
+{
+    double max = 0;
+    for (int j = 0; j < array.Length; j++)
+        if (array[j] > max)
+            max = array[j];
+    return max;
+}
 
+
+double Minimum(double [] array)
+{
+    double min = array[0];
+    for (int g = 0; g < array.Length; g++)
+        if (array[g] < min)
+            min = array[g];
+    return min;
+}
+
+double ReleaseArray(double[] array)
+{
+    double r = Maximum(array) - Minimum(array);
+    return r;
+}
 
 
 Console.Write("Введите кол-во элементов в массиве: ");
@@ -17,4 +39,6 @@ int n = Convert.ToInt32(Console.ReadLine());
 double [] array = new double[n];
 InputArray(array);
 Console.WriteLine($"[{string.Join(", ", array)}]");
-Console.WriteLine(ReleaseArray(array));
+Console.WriteLine($"max = {Maximum(array)}");
+Console.WriteLine($"min = {Minimum(array)}");
+Console.WriteLine($"Разница между max и min: {ReleaseArray(array)}");
